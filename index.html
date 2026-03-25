@@ -50,16 +50,107 @@
     margin: 10px;
     border: 1px solid white;
   }
+  /* Estilo para el programa de Interferencia */
+.caja-programa {
+    border: 2px solid #00ff00;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00ff00;
+    background: rgba(0,0,0,0.8);
+}
+/* Esto achica el título del sistema */
+.caja-programa h3 {
+    font-size: 18px; 
+    margin: 5px 0;
+    color: white;
+}
+#mensaje-interferencia {
+    margin: 20px 0;
+    font-weight: bold;
+    color: white;
+    min-height: 40px;
+}
+.btn-decodificar {
+    background-color: #00ff00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+
+
 </style>
 </head>
 <body>
+    <div class="main-wrapper">
+    <div class="content-left">
     <h3>interferencia</h3>
     <h1>el diabolico mundo de kurva dos santos</h1> 
     <h2>basado en una historia real</h2>
     <p>esta es la historia de un niño y su grupo de amigos quienes deben atravesar distintos mundos para sobrevivir</p>
-<a href="https://www.facebook.com/share/1aqHVmU4Yq/" class="mi-boton">visitame en facebook</a>
-<a href="https://www.youtube.com/@anibaldossantos7360" class="mi-boton">visitame en youtube</a>
-    </p>
-    
+    <div id="countdown-container">
+    <h2 id="countdown-title">El primer capítulo llega en:</h2>
+    <div id="timer">
+        <span id="days">00</span>d : 
+        <span id="hours">00</span>h : 
+        <span id="minutes">00</span>m : 
+        <span id="seconds">00</span>s
+    </div>
+<div style="text-align: center; margin-top: 20px;">
+        <a href="https://mpago.la/2K7AcjM" class="mi-boton">visitame en mercado pago</a>
+        <a href="https://www.youtube.com/@anibaldossantos7360" class="mi-boton">visitame en youtube</a>
+        <a href="https://www.facebook.com/share/1aqHVmU4Yq/" class="mi-boton">visitame en facebook</a>
+    <div class="caja-programa">
+        <h3>SISTEMA DE INTERFERENCIA</h3>
+        <div id="mensaje-interferencia">... Esperando señal ...</div>
+        <button class="btn-decodificar" onclick="decodificar()">DECODIFICAR MENSAJE</button>
+    </div>
 </body>
+<script>
+    function decodificar() {
+        // --- ESTO ES LO NUEVO ---
+        const sonido = new Audio('audio.mp3'); 
+        sonido.play(); 
+        // -----------------------
+
+        const frases = [
+            "LA INTERFERENCIA HA COMENZADO...",
+            "Buscando el mejor cruce...",
+            "Capítulo 1: la represa.",
+            "estas por entrar al capitulo 1",
+            "aqui comienza tu historia"
+        ];
+        
+        const azar = Math.floor(Math.random() * frases.length);
+        document.getElementById("mensaje-interferencia").innerText = frases[azar];
+    }
+    // --- CÓDIGO DEL CONTADOR ---
+const fechaEstreno = new Date("april 30, 2026 00:00:00").getTime();
+
+const actualizador = setInterval(function() {
+    const ahora = new Date().getTime();
+    const distancia = fechaEstreno - ahora;
+
+    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = dias;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+    if (distancia < 0) {
+        clearInterval(actualizador);
+        document.getElementById("countdown-container").innerHTML = "<h3>¡CAPÍTULO 1 DISPONIBLE!</h3>";
+    }
+}, 1000);
+</script>
 </html>
